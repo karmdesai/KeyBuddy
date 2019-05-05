@@ -1,30 +1,22 @@
 <!DOCTYPE html>
-<!--<link rel="stylesheet" href="../static/style.css">-->
 
-<<<<<<< HEAD <head>
+<head>
+</head>
     <link rel="stylesheet" href="../static/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     </head>
-    =======
-    <h1>Please provide your SSH Key</h1>
-    >>>>>>> 77a9a4f03c94eebe1c7295a711640baf67872bff
+    <h1>User Login</h1>
 
     <body>
-        <h1>Please input your SSH Key Pair</h1>
+        <h1>Input Your SSH Key</h1>
 
         <form method="POST" action="/">
-
             {{ form.csrf_token}} {{ form.PublicKey.label }} {{ form.PublicKey(size=20) }} <br> {{ form.csrf_token }} {{ form.PrivateKey.label }} {{ form.PrivateKey(size=20) }}
             <br>
-
-
-            <input type="submit" value="Login">
+            {{ form.csrf_token }} {{ form.wordOne.label }} {{ form.wordOne(size=20) }} {{ form.csrf_token }} {{ form.wordTwo.label }} {{ form.wordTwo(size=20) }} {{ form.csrf_token }} {{ form.wordThree.label }} {{ form.wordThree(size=20) }} {{ form.csrf_token }}
+            {{ form.wordFour.label }} {{ form.wordFour(size=20) }} {{ form.csrf_token }} {{ form.wordFive.label }} {{ form.wordFive(size=20) }} {{ form.csrf_token }} {{ form.wordSix.label }} {{ form.wordSix(size=20) }} {{ form.csrf_token }} {{ form.wordSeven.label
+            }} {{ form.wordSeven(size=20) }}
+            <input type="submit" value="Submit">
         </form>
-        <div class="lll">
-            <h1>"hejewj"</h1>
-
-
-        </div>
-
 
     </body>

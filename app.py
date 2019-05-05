@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, ValidationError, EqualTo
 import sqlite3
+import hashlib
 
 app = Flask(__name__)
 app.config["TESTING"] = True
@@ -11,6 +12,13 @@ app.config["SECRET_KEY"] = "HELLO"
 
 conn = sqlite3.connect("sshDatabase.db", check_same_thread=False)
 cur = conn.cursor()
+global userKey
+
+def hash (wordToHash):
+    wordToHashByte = str.encode(wordToHash)
+    hashObject = hashlib.sha256(wordToHashByte).hexdigest()
+
+    return hashObject
 
 def checkPublicKey (className, fieldName):
     userKey = fieldName.data
@@ -20,7 +28,7 @@ def checkPublicKey (className, fieldName):
 
     # Ensure that the user is registered with info-base
     if len(data) == 0:
-        raise ValidationError("Empty")
+        raise ValidationError("Couldn't find the public key!")
     
 def checkPrivateKey (className, fieldName):
     userKey = fieldName.data
@@ -30,40 +38,89 @@ def checkPrivateKey (className, fieldName):
 
     # Ensure that the user is registered with info-base
     if data != [(userKey,)]:
-        raise ValidationError("Doesn't match")
+        raise ValidationError("Private-public key pairs don't match!")
 
-def test(a, b):
-    print('hello?')
-    raise ValidationError("test")
+def verifyWordOne (className, fieldName):
+    userWord = hash(fieldName.data)
+
+    cur.execute('SELECT wordOne FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
+    data = cur.fetchall()
+    
+    if data != [(userWord,)]:
+        raise ValidationError("Incorrect Word!")
+
+def verifyWordTwo (className, fieldName):
+    userWord = hash(fieldName.data)
+
+    cur.execute('SELECT wordTwo FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
+    data = cur.fetchall()
+    
+    if data != [(userWord,)]:
+        raise ValidationError("Incorrect Word!")
+
+def verifyWordThree (className, fieldName):
+    userWord = hash(fieldName.data)
+
+    cur.execute('SELECT wordThree FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
+    data = cur.fetchall()
+    
+    if data != [(userWord,)]:
+        raise ValidationError("Incorrect Word!")
+
+def verifyWordFour (className, fieldName):
+    userWord = hash(fieldName.data)
+
+    cur.execute('SELECT wordFour FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
+    data = cur.fetchall()
+    
+    if data != [(userWord,)]:
+        raise ValidationError("Incorrect Word!")
+
+def verifyWordFive (className, fieldName):
+    userWord = hash(fieldName.data)
+
+    cur.execute('SELECT wordFive FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
+    data = cur.fetchall()
+    
+    if data != [(userWord,)]:
+        raise ValidationError("Incorrect Word!")
+
+def verifyWordSix (className, fieldName):
+    userWord = hash(fieldName.data)
+
+    cur.execute('SELECT wordSix FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
+    data = cur.fetchall()
+    
+    if data != [(userWord,)]:
+        raise ValidationError("Incorrect Word!")
+
+def verifyWordSeven (className, fieldName):
+    userWord = hash(fieldName.data)
+
+    cur.execute('SELECT wordSeven FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
+    data = cur.fetchall()
+    
+    if data != [(userWord,)]:
+        raise ValidationError("Incorrect Word!")
 
 class FirstForm(FlaskForm):
     PublicKey = StringField('PublicKey', validators=[DataRequired(), checkPublicKey])
     PrivateKey = StringField('PrivateKey', validators=[DataRequired(), checkPrivateKey])
-class SecondForm(FlaskForm):
-    wordOne = StringField('Word One', validators =[DataRequired()])
-    wordTwo = StringField('Word Two', validators =[DataRequired()])
-    wordThree = StringField('Word Three', validators =[DataRequired()])
-    wordFour = StringField('Word Four', validators =[DataRequired()])
-    wordFive = StringField('Word Five', validators =[DataRequired()])
-    wordSix = StringField('Word Six', validators =[DataRequired()])
-    wordSeven = StringField('Word Seven', validators =[DataRequired()])
+    wordOne = StringField('Word One', validators =[DataRequired(), verifyWordOne])
+    wordTwo = StringField('Word Two', validators =[DataRequired(), verifyWordTwo])
+    wordThree = StringField('Word Three', validators =[DataRequired(), verifyWordThree])
+    wordFour = StringField('Word Four', validators =[DataRequired(), verifyWordFour])
+    wordFive = StringField('Word Five', validators =[DataRequired(), verifyWordFive])
+    wordSix = StringField('Word Six', validators =[DataRequired(), verifyWordSix])
+    wordSeven = StringField('Word Seven', validators =[DataRequired(), verifyWordSeven])
 
 @app.route('/', methods=('GET', 'POST'))
 def login():
     form = FirstForm()
     if form.validate_on_submit():        
-        return redirect(url_for('submit2'))
+        return "Sucessfully logged in! Messaging app coming soon!"
 
     return render_template('login.html', form=form)
-
-@app.route('/submit2', methods=('GET', 'POST'))
-def submit2():
-    form = SecondForm()
-    if form.validate_on_submit():
-        #print(form.PublicKey.data)
-       # print(form.PrivateKey.data)
-        return redirect('/')
-    return render_template('7wordsauth.html', form=form)
 
 #rendering the HTML page which has the button
 @app.route('/signup')
