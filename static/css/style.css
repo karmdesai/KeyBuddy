@@ -1,0 +1,29 @@
+body {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    text-align: center;
+    color: rgb(209, 66, 66);
+    font-family: 'Poppins', sans-serif;
+}
+
+.lll {
+    text-align: center;
+    color: rgb(44, 22, 22);
+    font-family: 'Poppins', sans-serif;
+}
+
+
+=======
+>>>>>>> 2af1e562ed2f8749cf4ddfa89bf27900b576b8ea
+    color: green;
+    text-align: center;
+}
+
+.centerItems {
+    align-items: center;
+<<<<<<< HEAD
+=======
+>>>>>>> styling.
+>>>>>>> 2af1e562ed2f8749cf4ddfa89bf27900b576b8ea
+}

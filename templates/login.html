@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--<link rel="stylesheet" href="../static/style.css">-->
+
+<<<<<<< HEAD <head>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    </head>
+    =======
+    <h1>Please provide your SSH Key</h1>
+    >>>>>>> 77a9a4f03c94eebe1c7295a711640baf67872bff
+
+    <body>
+        <h1>Please input your SSH Key Pair</h1>
+
+        <form method="POST" action="/">
+
+            {{ form.csrf_token}} {{ form.PublicKey.label }} {{ form.PublicKey(size=20) }} <br> {{ form.csrf_token }} {{ form.PrivateKey.label }} {{ form.PrivateKey(size=20) }}
+            <br>
+
+
+            <input type="submit" value="Login">
+        </form>
+        <div class="lll">
+            <h1>"hejewj"</h1>
+
+
+        </div>
+
+
+    </body>
