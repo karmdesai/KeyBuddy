@@ -12,10 +12,14 @@
 
         <form method="POST" action="/">
             {{ form.csrf_token}} {{ form.PublicKey.label }} {{ form.PublicKey(size=20) }} <br> {{ form.csrf_token }} {{ form.PrivateKey.label }} {{ form.PrivateKey(size=20) }}
-            <br>
-            {{ form.csrf_token }} {{ form.wordOne.label }} {{ form.wordOne(size=20) }} {{ form.csrf_token }} {{ form.wordTwo.label }} {{ form.wordTwo(size=20) }} {{ form.csrf_token }} {{ form.wordThree.label }} {{ form.wordThree(size=20) }} {{ form.csrf_token }}
-            {{ form.wordFour.label }} {{ form.wordFour(size=20) }} {{ form.csrf_token }} {{ form.wordFive.label }} {{ form.wordFive(size=20) }} {{ form.csrf_token }} {{ form.wordSix.label }} {{ form.wordSix(size=20) }} {{ form.csrf_token }} {{ form.wordSeven.label
-            }} {{ form.wordSeven(size=20) }}
+            <br> <br>
+            {{ form.csrf_token }} {{ form.wordOne.label }} {{ form.wordOne(size=20) }} 
+            <br> {{ form.csrf_token }} {{ form.wordTwo.label }} {{ form.wordTwo(size=20) }} 
+            <br> {{ form.csrf_token }} {{ form.wordThree.label }} {{ form.wordThree(size=20) }} {{ form.csrf_token }}
+            <br> {{ form.wordFour.label }} {{ form.wordFour(size=20) }} 
+            <br> {{ form.csrf_token }} {{ form.wordFive.label }} {{ form.wordFive(size=20) }} 
+            <br> {{ form.csrf_token }} {{ form.wordSix.label }} {{ form.wordSix(size=20) }} 
+            <br> {{ form.csrf_token }} {{ form.wordSeven.label}} {{ form.wordSeven(size=20) }}
             <input type="submit" value="Submit">
         </form>
 

@@ -41,7 +41,7 @@ def checkPrivateKey (className, fieldName):
         raise ValidationError("Private-public key pairs don't match!")
 
 def verifyWordOne (className, fieldName):
-    userWord = hash(fieldName.data)
+    userWord = fieldName.data
 
     cur.execute('SELECT wordOne FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
     data = cur.fetchall()
@@ -50,7 +50,7 @@ def verifyWordOne (className, fieldName):
         raise ValidationError("Incorrect Word!")
 
 def verifyWordTwo (className, fieldName):
-    userWord = hash(fieldName.data)
+    userWord = fieldName.data
 
     cur.execute('SELECT wordTwo FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
     data = cur.fetchall()
@@ -59,7 +59,7 @@ def verifyWordTwo (className, fieldName):
         raise ValidationError("Incorrect Word!")
 
 def verifyWordThree (className, fieldName):
-    userWord = hash(fieldName.data)
+    userWord = fieldName.data
 
     cur.execute('SELECT wordThree FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
     data = cur.fetchall()
@@ -68,7 +68,7 @@ def verifyWordThree (className, fieldName):
         raise ValidationError("Incorrect Word!")
 
 def verifyWordFour (className, fieldName):
-    userWord = hash(fieldName.data)
+    userWord = fieldName.data
 
     cur.execute('SELECT wordFour FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
     data = cur.fetchall()
@@ -77,7 +77,7 @@ def verifyWordFour (className, fieldName):
         raise ValidationError("Incorrect Word!")
 
 def verifyWordFive (className, fieldName):
-    userWord = hash(fieldName.data)
+    userWord = fieldName.data
 
     cur.execute('SELECT wordFive FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
     data = cur.fetchall()
@@ -86,7 +86,7 @@ def verifyWordFive (className, fieldName):
         raise ValidationError("Incorrect Word!")
 
 def verifyWordSix (className, fieldName):
-    userWord = hash(fieldName.data)
+    userWord = fieldName.data
 
     cur.execute('SELECT wordSix FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
     data = cur.fetchall()
@@ -95,7 +95,7 @@ def verifyWordSix (className, fieldName):
         raise ValidationError("Incorrect Word!")
 
 def verifyWordSeven (className, fieldName):
-    userWord = hash(fieldName.data)
+    userWord = fieldName.data
 
     cur.execute('SELECT wordSeven FROM userDatabase WHERE publicKey = (?)', (className.PublicKey.data,))
     data = cur.fetchall()
