@@ -8,7 +8,7 @@
     <h1>User Login</h1>
 
     <body>
-        <h1>Input Your SSH Key</h1>
+        <h3>Input Your SSH Keys</h3>
 
         <form method="POST" action="/">
             {{ form.csrf_token}} {{ form.PublicKey.label }} {{ form.PublicKey(size=20) }} <br> {{ form.csrf_token }} {{ form.PrivateKey.label }} {{ form.PrivateKey(size=20) }}
@@ -20,6 +20,7 @@
             <br> {{ form.csrf_token }} {{ form.wordFive.label }} {{ form.wordFive(size=20) }} 
             <br> {{ form.csrf_token }} {{ form.wordSix.label }} {{ form.wordSix(size=20) }} 
             <br> {{ form.csrf_token }} {{ form.wordSeven.label}} {{ form.wordSeven(size=20) }}
+            <br> <br>
             <input type="submit" value="Submit">
         </form>
 
