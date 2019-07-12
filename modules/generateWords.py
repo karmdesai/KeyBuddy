@@ -33,6 +33,3 @@ def generateWords ():
     randomWords(userWords)
 
     return userWords
-
-if __name__ ==  "__main__":
-    generateWords()

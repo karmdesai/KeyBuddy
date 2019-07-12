@@ -1,9 +1,9 @@
-# Import the required dependencies
+# Import the dependencies
 from Crypto.PublicKey import RSA
 
 # Make a function that generates a public-private key pair
 def generateKey (bits = 2048):
-    
+
     # Create a list to store the public-private keys
     keyPair = []
 
@@ -26,7 +26,7 @@ def generateKey (bits = 2048):
         finalPublicKey += keySection
 
     print(finalPublicKey)
-    
+
     # Clean up the private key - remove unwanted text
     privateKeyList = privateKey.splitlines()
     privateKeyListTwo = []
@@ -46,6 +46,3 @@ def generateKey (bits = 2048):
 
     # Return the list that contains the public-private keys
     return keyPair
-
-if __name__ ==  "__main__":
-    generateKey()

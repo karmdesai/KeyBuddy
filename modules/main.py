@@ -1,10 +1,10 @@
 # Import the dependencies
 import hashlib
-import generateKey
-import generateWords
 import sqlite3
+from modules import generateKey
+from modules import generateWords
 
-conn = sqlite3.connect("sshDatabase.db", check_same_thread=False)
+conn = sqlite3.connect("sshDatabase.db", check_same_thread = False)
 cur = conn.cursor()
 
 # Create the table
@@ -50,12 +50,22 @@ class Main ():
 
         self.masterList.append(userInfo)
 
-        userAccountInfo = """Your seven words (in order) are:\n
-        '{}, {}, {}, {}, {}, {}, {}' Remember these words! They cannot be reset and 
-        you will need them to log in!\nYour public key is {}\n Your private key is {}""".format (wordOne, 
-        wordTwo, wordThree, wordFour, wordFive, wordSix, wordSeven, userInfo['publicKey'], userInfo['privateKey'])
+        # Large multi-line string that will be returned when a new user is created
+        # Uses HTML within the string - have to find a workaround for that
+        userAccountInfo = """
+        <center><h1>Account Information</h1></center>
+        <p>Your Words (In Order) Are:
+            <ol>
+                <li>{}</li> <br> <li>{}</li> <br> <li>{}</li> <br> <li>{}</li>
+                 <br> <li>{}</li> <br> <li>{}</li> <br> <li>{}</li>
+            </ol>
+            <br>
+            <em>Remember these words! They cannot be reset and
+            you will need them to log in!</em> <br><br><br>
+            <strong>Your Public Key Is:</strong> {} <br><br>
+            <strong>Your Private Key Is:</strong> {} </p>""".format (wordOne, wordTwo, wordThree,
+            wordFour, wordFive, wordSix, wordSeven, userInfo['publicKey'], userInfo['privateKey'])
 
-        
         userInfoTuple = (userInfo['publicKey'], userInfo['privateKey'], wordOne, wordTwo, wordThree,
         wordFour, wordFive, wordSix, wordSeven)
 

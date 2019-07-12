@@ -1,29 +1,22 @@
+/*-----------------------*/
+/*----- CSS Styles -----*/
+/*---------------------*/
+
 body {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    text-align: center;
-    color: rgb(209, 66, 66);
-    font-family: 'Poppins', sans-serif;
+  text-align: center;
 }
 
-.lll {
-    text-align: center;
-    color: rgb(44, 22, 22);
-    font-family: 'Poppins', sans-serif;
+.primaryTitle {
+  font-size: 60px;
 }
 
-
-=======
->>>>>>> 2af1e562ed2f8749cf4ddfa89bf27900b576b8ea
-    color: green;
-    text-align: center;
+.secondaryTitle {
+  font-size: 45px;
 }
 
-.centerItems {
-    align-items: center;
-<<<<<<< HEAD
-=======
->>>>>>> styling.
->>>>>>> 2af1e562ed2f8749cf4ddfa89bf27900b576b8ea
+.container {
+  padding-left: 220px;
+  padding-right: 220px;
+  padding-top: 60px;
+  padding-bottom: 75px;
 }

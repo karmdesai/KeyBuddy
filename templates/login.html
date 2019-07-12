@@ -1,27 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-</head>
+    <!-- Bootstrap CSS and other Stylesheets -->
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    </head>
-    <h1>User Login</h1>
 
-    <body>
-        <h3>Input Your SSH Keys</h3>
+    <!-- Embed Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
-        <form method="POST" action="/">
-            {{ form.csrf_token}} {{ form.PublicKey.label }} {{ form.PublicKey(size=20) }} <br> {{ form.csrf_token }} {{ form.PrivateKey.label }} {{ form.PrivateKey(size=20) }}
-            <br> <br>
-            {{ form.csrf_token }} {{ form.wordOne.label }} {{ form.wordOne(size=20) }} 
-            <br> {{ form.csrf_token }} {{ form.wordTwo.label }} {{ form.wordTwo(size=20) }} 
-            <br> {{ form.csrf_token }} {{ form.wordThree.label }} {{ form.wordThree(size=20) }} {{ form.csrf_token }}
-            <br> {{ form.wordFour.label }} {{ form.wordFour(size=20) }} 
-            <br> {{ form.csrf_token }} {{ form.wordFive.label }} {{ form.wordFive(size=20) }} 
-            <br> {{ form.csrf_token }} {{ form.wordSix.label }} {{ form.wordSix(size=20) }} 
-            <br> {{ form.csrf_token }} {{ form.wordSeven.label}} {{ form.wordSeven(size=20) }}
-            <br> <br>
-            <input type="submit" value="Submit">
-        </form>
+    <title>Login - KeyBuddy</title>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="/">Registration</a>
+      <a class="navbar-brand font-weight-bold" href="/login">Login</a>
+      <a class="navbar-brand" href="/message">About Us</a>
+    </nav>
+    <br><br>
 
-    </body>
+    <!-- Page Title -->
+    <h1 class="text-center display-2 font-weight-bold primaryTitle">KeyBuddy</h1>
+    <h2 class="text-center display-5">Login</h2>
+    <br><br>
+
+    <div class="container text-right">
+      <h3>Please Enter Your SSH Keys & Words.</h3>
+      <!-- SSH Keys Form -->
+      <form method="POST" action="/">
+          <!-- Displays Key Fields -->
+          {{ form.csrf_token}} {{ form.PublicKey.label }}:   {{ form.PublicKey(size=30) }}
+          <br><br>
+          {{ form.csrf_token }} {{ form.PrivateKey.label }}:   {{ form.PrivateKey(size=30) }}
+          <br><br>
+          <!-- Display Word Fields -->
+          {{ form.csrf_token }} {{ form.wordOne.label }}:    {{ form.wordOne(size=15) }}
+          <br> {{ form.csrf_token }} {{ form.wordTwo.label }}:    {{ form.wordTwo(size=15) }}
+          <br> {{ form.csrf_token }} {{ form.wordThree.label }}:    {{ form.wordThree(size=15) }}
+          <br> {{ form.csrf_token }} {{ form.wordFour.label }}:    {{ form.wordFour(size=15) }}
+          <br> {{ form.csrf_token }} {{ form.wordFive.label }}:    {{ form.wordFive(size=15) }}
+          <br> {{ form.csrf_token }} {{ form.wordSix.label }}:    {{ form.wordSix(size=15) }}
+          <br> {{ form.csrf_token }} {{ form.wordSeven.label}}:    {{ form.wordSeven(size=15) }}
+          <br><br>
+
+          <!-- Login Button -->
+          <button class="btn btn-danger btn-lg" href="message.html">Login</button>
+      </form>
+      <br><br><br>
+    </div>
+  </body>
+</html>

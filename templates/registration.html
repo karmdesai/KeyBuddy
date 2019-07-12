@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS and other Stylesheets -->
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- Embed Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+    <!-- Load Scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <title>Registration - KeyBuddy</title>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand font-weight-bold" href="/">Registration</a>
+      <a class="navbar-brand" href="/login">Login</a>
+      <a class="navbar-brand" href="/message">About Us</a>
+    </nav>
+    <br><br>
+
+    <!-- Page Titles -->
+    <h1 class="text-center display-2 font-weight-bold primaryTitle">KeyBuddy</h1>
+    <h2 class="text-center display-5">Registration</h2>
+    <br><br><br><br><br><br>
+
+    <!-- Button To Generate Key -->
+    <div class='container text-center'>
+      <h3>Generate</h3>
+      <a href='{{ url_for("generate") }}'><button class='btn btn-danger btn-lg'>Generate Your SSH Key!</button></a>
+    </div>
+
+  </body>
+</html>
