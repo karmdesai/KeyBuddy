@@ -12,5 +12,5 @@ $ python app.py
 
 ### What's Next
 - [x] Style the web application.
-- [] Create a sample service that can used to demo KeyBuddy.
+- [] Create a sample service that can used to demo KeyBuddy (e.g. a messaging platform).
 - [] Switch from a local, centralized solution to a decentralized solution (e.g. blockchain).
